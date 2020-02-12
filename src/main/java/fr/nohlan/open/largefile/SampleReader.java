@@ -1,7 +1,6 @@
 package fr.nohlan.open.largefile;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -10,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 
 public class SampleReader {
 
-    public static void main(final String[] args) throws FileNotFoundException, IOException {
+    public static void main(final String[] args) throws IOException {
 
         try (
                 RandomAccessFile reader = new RandomAccessFile("target/tmp.txt", "r");

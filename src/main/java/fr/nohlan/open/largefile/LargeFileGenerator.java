@@ -12,13 +12,13 @@ public class LargeFileGenerator {
     }
 
     public static void generate(final String filename, final long byteSizeInMb) {
-        final byte data = "0".getBytes()[0];
         try(FileOutputStream fos = new FileOutputStream(new File(filename))) {
 
             final ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
-            for(int i=0; i<1024; i++) {
-                baos.write(data);
+            for(int i=0; i<1023; i++) {
+                baos.write("0".getBytes());
             }
+            baos.write("\n".getBytes());
             for(long i=0; i<byteSizeInMb; i++) {
                 fos.write(baos.toByteArray());
             }
