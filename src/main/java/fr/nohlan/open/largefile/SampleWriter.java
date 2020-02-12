@@ -16,6 +16,11 @@ public class SampleWriter {
             channel.position(16);
             final ByteBuffer buff = ByteBuffer.wrap("123456789A".getBytes(StandardCharsets.UTF_8));
             channel.write(buff);
+
+            // delete last 10 bytes
+            final long end = randomFile.length()-10;
+            channel.truncate(end);
+            // channel.force(true);
         }
 
     }
